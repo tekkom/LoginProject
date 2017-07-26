@@ -152,6 +152,7 @@ INSTALLED_APPS = (
     'login_project',
     'ntnulogin',
     'users',
+    'events',
 )
 
 LANGUAGES = (
