@@ -151,6 +151,7 @@ INSTALLED_APPS = (
     'djangocms_video',
     'login_project',
     'ntnulogin',
+    'users',
     'events',
 )
 
@@ -210,3 +211,7 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+# Login and user authentication
+
+LOGIN_REDIRECT_URL = '/'
