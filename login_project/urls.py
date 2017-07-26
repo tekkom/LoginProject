@@ -16,7 +16,7 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^sitemap\.xml$', sitemap,
         {'sitemaps': {'cmspages': CMSSitemap}}),
-    url(r'^events/', include('events.urls')),
+    url(r'', include('events.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', include('ntnulogin.urls')),
     url(r'^auth/', include('users.urls')),
