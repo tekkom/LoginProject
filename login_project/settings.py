@@ -57,7 +57,7 @@ LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Europe/Oslo'
 
-USE_I18N = True
+USE_I18N = False
 
 USE_L10N = True
 
