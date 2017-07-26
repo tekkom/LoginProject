@@ -21,12 +21,14 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', include('ntnulogin.urls')),
     url(r'^auth/', include('users.urls')),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
+    url(r'^', include('cms.urls')),
 ]
 
-urlpatterns += i18n_patterns(
-    url(r'^admin/', include(admin.site.urls)),  # NOQA
-    url(r'^', include('cms.urls')),
-)
+#urlpatterns += i18n_patterns(
+#    url(r'^admin/', include(admin.site.urls)),  # NOQA
+#    url(r'^', include('cms.urls')),
+#)
 
 # This is only needed when using runserver.
 if settings.DEBUG:

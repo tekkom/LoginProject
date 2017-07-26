@@ -16,6 +16,11 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+try:
+    from settings_secret import *
+except:
+    print("WARNING: No settings_secret.py file found, using random SECRET_KEY")
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -23,7 +28,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'y5lf*)gdgtir9c^t+cl2l9=lhy)r$!8m)8xtg=9g#_xvp7u)dm'
+# settings_secret.py SECRET_KEY = 'y5lf*)gdgtir9c^t+cl2l9=lhy)r$!8m)8xtg=9g#_xvp7u)dm'
+if SECRET_KEY is None:
+    import os, hashlib
+    SECRET_KEY = hashlib.sha256(os.urandom(64)).hexdigest()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -57,7 +65,7 @@ LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'Europe/Oslo'
 
-USE_I18N = True
+USE_I18N = False
 
 USE_L10N = True
 
@@ -94,7 +102,10 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'sekizai.context_processors.sekizai',
                 'django.template.context_processors.static',
-                'cms.context_processors.cms_settings'
+                'cms.context_processors.cms_settings',
+
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
@@ -118,7 +129,9 @@ MIDDLEWARE_CLASSES = (
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
-    'cms.middleware.language.LanguageCookieMiddleware'
+    'cms.middleware.language.LanguageCookieMiddleware',
+
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 )
 
 INSTALLED_APPS = (
@@ -149,6 +162,7 @@ INSTALLED_APPS = (
     'djangocms_snippet',
     'djangocms_googlemap',
     'djangocms_video',
+    'social_django',
     'login_project',
     'ntnulogin',
     'users',
@@ -215,4 +229,21 @@ THUMBNAIL_PROCESSORS = (
 
 # Login and user authentication
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_URL = 'auth/login/'
+LOGOUT_URL = 'auth/logout/'
 LOGIN_REDIRECT_URL = '/'
+
+
+# Social auth
+#SOCIAL_AUTH_GITHUB_KEY =
+#SOCIAL_AUTH_GITHUB_SECRET =
+#SOCIAL_AUTH_FACEBOOK_KEY =
+#SOCIAL_AUTH_FACEBOOK_SECRET =
