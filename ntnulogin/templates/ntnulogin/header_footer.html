@@ -6,9 +6,21 @@
 	<meta charset="utf-8" />
 </head>
 
-<div class="header">
-  <p>Header goes here</p>
-</div>
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<header>
+  {% block header %}
+    {% include "ntnulogin/includes/navbar.html" %}
+  {% endblock %}
+</header>
 
 <body class="body" style="background-color:#f6f6f6">
 	<div>
@@ -18,9 +30,9 @@
 </body>
 
 <footer>
-  <div class="footer">
-    <p>Footer goes here</p>
-  </div>
+  {% block footer %}
+    {% include "ntnulogin/includes/footer_info.html" %}
+  {% endblock %}
 </footer>
 
 </html>

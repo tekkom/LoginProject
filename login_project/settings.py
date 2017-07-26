@@ -131,6 +131,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'django.contrib.messages',
+    'bootstrap3',
     'cms',
     'menus',
     'sekizai',
