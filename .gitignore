@@ -10,6 +10,9 @@ env/
 venvn-login/
 venvn/
 
+# Pycharm
+.idea/
+
 # Distribution / packaging
 bin/
 build/
