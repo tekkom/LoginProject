@@ -150,7 +150,8 @@ INSTALLED_APPS = (
     'djangocms_googlemap',
     'djangocms_video',
     'login_project',
-    'ntnulogin'
+    'ntnulogin',
+    'events',
 )
 
 LANGUAGES = (
