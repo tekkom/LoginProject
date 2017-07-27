@@ -22,3 +22,4 @@ Pillow>=3.0
 django-sekizai>=0.9
 six
 django-bootstrap3
+social-auth-app-django==1.2.0

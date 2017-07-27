@@ -16,10 +16,12 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^sitemap\.xml$', sitemap,
         {'sitemaps': {'cmspages': CMSSitemap}}),
-    url(r'', include('events.urls', namespace='events')),
+    url(r'^', include('events.urls')),
+    url(r'^newsfeed/', include('newsfeed.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', include('ntnulogin.urls')),
     url(r'^auth/', include('users.urls')),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
     url(r'^', include('cms.urls')),
 ]
 
