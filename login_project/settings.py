@@ -166,6 +166,7 @@ INSTALLED_APPS = (
     'ntnulogin',
     'users',
     'events',
+    'newsfeed',
 )
 
 LANGUAGES = (
