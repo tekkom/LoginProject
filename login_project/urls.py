@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^$', include('ntnulogin.urls')),
     url(r'^auth/', include('users.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
-    url(r'^', include('cms.urls')),
+    url(r'^cms', include('cms.urls')),
 ]
 
 #urlpatterns += i18n_patterns(
