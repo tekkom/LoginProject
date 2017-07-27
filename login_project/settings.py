@@ -108,7 +108,6 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'sekizai.context_processors.sekizai',
                 'django.template.context_processors.static',
-                'cms.context_processors.cms_settings',
 
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
@@ -159,35 +158,6 @@ LANGUAGES = (
     ## Customize this
     ('en', gettext('en')),
 )
-
-CMS_LANGUAGES = {
-    ## Customize this
-    'default': {
-        'public': True,
-        'hide_untranslated': False,
-        'redirect_on_fallback': True,
-    },
-    1: [
-        {
-            'public': True,
-            'code': 'en',
-            'hide_untranslated': False,
-            'name': gettext('en'),
-            'redirect_on_fallback': True,
-        },
-    ],
-}
-
-CMS_TEMPLATES = (
-    ## Customize this
-    ('fullwidth.html', 'Fullwidth'),
-    ('sidebar_left.html', 'Sidebar Left'),
-    ('sidebar_right.html', 'Sidebar Right')
-)
-
-CMS_PERMISSION = True
-
-CMS_PLACEHOLDER_CONF = {}
 
 DATABASES = {
     'default': {
