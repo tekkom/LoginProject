@@ -30,8 +30,13 @@
           <div class="col col-lg-6 col-md-6 col-sm-12 events">
             <ul class="eventlist"> <!-- Lage include for denne -->
               <h6>Nye Events</h6>
-              <li>Event 1</li>
-              <li>Event 2</li>
+              {% if events %}
+                {% for event in events %}
+                  <li>{{ event.title }}</li>
+                {% endfor %}
+              {% else %}
+                <li>Ingen nye events</li>
+              {% endif %}
             </ul>
           </div>
         </div>
