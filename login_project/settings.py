@@ -81,8 +81,15 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'login_project', 'static'),
+    os.path.join(BASE_DIR, 'ntnulogin', 'static'),
 )
 SITE_ID = 1
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
 
 
 TEMPLATES = [
@@ -162,6 +169,7 @@ INSTALLED_APPS = (
     'djangocms_googlemap',
     'djangocms_video',
     'social_django',
+    'sass_processor',
     'login_project',
     'ntnulogin',
     'users',
@@ -240,8 +248,16 @@ LOGIN_URL = 'auth/login/'
 LOGOUT_URL = 'auth/logout/'
 LOGIN_REDIRECT_URL = '/'
 
+# SASS
+
+SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
+SASS_OUTPUT_STYLE = 'nested'
 
 # Social auth
+
+SOCIAL_AUTH_COMPLETE_URL_NAME  = 'auth/socialauth_complete'
+SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'auth/socialauth_associate_complete'
+
 #SOCIAL_AUTH_GITHUB_KEY =
 #SOCIAL_AUTH_GITHUB_SECRET =
 #SOCIAL_AUTH_FACEBOOK_KEY =
