@@ -1,12 +1,29 @@
 {% extends "ntnulogin/header_footer.html" %}
 {% block content %}
 <div class="container">
-  <div class="row">
-    <div class="col col-lg-6">
-      <p>Event her</p>
+  <div class="panel panel-default">
+    <div class="panel panel-heading">
+      <h4>Events</h4>
     </div>
-    <div class="col col-lg-6">
-      <p>Event her</p>
+    <div class="panel-body">
+    {% if events %}
+        <ul>
+        {% for event in events %}
+        <h4><a href="#">{{ event.title }}</a></h4>
+            <div class="row">
+              <div class="col col-lg-12">
+                <div class="event-body">
+                  {{ event.body|safe|truncatewords:"50"|linebreaks }}
+                  <a href="{{ url_for_full_content }}">Les mer</a>
+                </div>
+              </div>
+            </div>
+            <hr>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Ingen events</p>
+    {% endif %}
     </div>
   </div>
 </div>

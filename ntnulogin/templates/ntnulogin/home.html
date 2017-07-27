@@ -1,12 +1,47 @@
 {% extends "ntnulogin/header_footer.html" %}
-
-{% block content %}
+{% block splash %}
 <div class="jumbotron">
   <div class="container">
     <h1>Login - linjeforeningen for IT {{ user.username }}</h1>
   </div>
 </div>
+{% endblock %}
+{% block content %}
 <div class="container">
-  <hr>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Login - Linjeforeningen for IT
+    </div>
+    <div class="panel-body">
+      <div class="newsfeed">
+        <h2>Newsfeed</h2>
+        <p>Ingen nyheter</p>
+      </div>
+      <hr>
+      <div class="jobs-and-events">
+        <div class="row">
+          <div class="col col-lg-6 col-md-6 col-sm-12 jobs">
+            <ul class="joblist"> <!-- Lage include for denne -->
+              <h6>Utlyste Stillinger</h6>
+              <li>Jobb 1</li>
+              <li>Jobb 2</li>
+            </ul>
+          </div>
+          <div class="col col-lg-6 col-md-6 col-sm-12 events">
+            <ul class="eventlist"> <!-- Lage include for denne -->
+              <h6>Nye Events</h6>
+              {% if events %}
+                {% for event in events %}
+                  <li>{{ event.title }}</li>
+                {% endfor %}
+              {% else %}
+                <li>Ingen nye events</li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
