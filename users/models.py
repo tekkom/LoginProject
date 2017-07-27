@@ -6,6 +6,7 @@ class Group(models.Model):
 
     def __str__(self):
         return self.gName
+
 class User(models.Model):
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     email = models.CharField(max_length=50)
@@ -14,3 +15,4 @@ class User(models.Model):
 
     def __str__(self):
         return self.group + ' - ' + self.uName
+
