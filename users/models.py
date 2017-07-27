@@ -14,5 +14,5 @@ class User(models.Model):
     verified = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.group + ' - ' + self.uName
+        return str(self.group) + ' - ' + self.uName
 
