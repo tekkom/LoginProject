@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, print_function, unicode_literals
 
-from cms.sitemaps import CMSSitemap
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
@@ -14,15 +13,12 @@ from django.views.static import serve
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^sitemap\.xml$', sitemap,
-        {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^', include('events.urls')),
     url(r'^newsfeed/', include('newsfeed.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', include('ntnulogin.urls')),
     url(r'^auth/', include('users.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
-    url(r'^cms', include('cms.urls')),
 ]
 
 #urlpatterns += i18n_patterns(
