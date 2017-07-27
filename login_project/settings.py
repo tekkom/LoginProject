@@ -20,6 +20,8 @@ try:
     from settings_secret import *
 except:
     print("WARNING: No settings_secret.py file found, using random SECRET_KEY")
+    import os, hashlib
+    SECRET_KEY = hashlib.sha256(os.urandom(64)).hexdigest()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -29,9 +31,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # settings_secret.py SECRET_KEY = 'y5lf*)gdgtir9c^t+cl2l9=lhy)r$!8m)8xtg=9g#_xvp7u)dm'
-if SECRET_KEY is None:
-    import os, hashlib
-    SECRET_KEY = hashlib.sha256(os.urandom(64)).hexdigest()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
