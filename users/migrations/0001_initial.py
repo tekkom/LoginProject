@@ -13,14 +13,22 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Group',
             fields=[
+
                 ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+
                 ('gName', models.CharField(max_length=100)),
             ],
         ),
         migrations.CreateModel(
             name='User',
             fields=[
+
                 ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+
                 ('email', models.CharField(max_length=50)),
                 ('uName', models.CharField(max_length=100)),
                 ('verified', models.BooleanField(default=False)),
