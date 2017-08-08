@@ -1,8 +1,8 @@
 {
 	"version": 3,
-	"file": "../../home/syn/dev/git/pylogin/ntnulogin/static/sass/main.css",
+	"file": "../../home/syn/dev/git/PyLogin/ntnulogin/static/sass/main.css",
 	"sources": [
-		"../../home/syn/dev/git/pylogin/ntnulogin/static/sass/main.scss"
+		"../../home/syn/dev/git/PyLogin/ntnulogin/static/sass/main.scss"
 	],
 	"names": [],
 	"mappings": ""

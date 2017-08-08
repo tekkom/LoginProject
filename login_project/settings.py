@@ -142,16 +142,18 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'django.contrib.staticfiles',
     'django.contrib.messages',
+
     'bootstrap3',
     'sekizai',
     'treebeard',
     'social_django',
     'sass_processor',
+
     'login_project',
-    'ntnulogin',
-    'users',
-    'events',
-    'newsfeed',
+    'ntnulogin.apps.NtnuloginConfig',
+    'users.apps.UsersConfig',
+    'events.apps.EventsConfig',
+    'newsfeed.apps.NewsfeedConfig',
 )
 
 LANGUAGES = (
