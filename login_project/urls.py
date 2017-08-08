@@ -13,10 +13,10 @@ from django.views.static import serve
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^', include('events.urls')),
+    url(r'^events/', include('events.urls')),
     url(r'^newsfeed/', include('newsfeed.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', include('ntnulogin.urls')),
+    url(r'^', include('ntnulogin.urls')),
     url(r'^auth/', include('users.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]
